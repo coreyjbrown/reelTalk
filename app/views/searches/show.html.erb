@@ -1,0 +1,37 @@
+<header>
+	<%= render 'layouts/nav' %>
+</header>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8">
+			<h1><%= @search.title %></h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<% if @url["trailers"] %>
+			<div>
+				<%= @url["trailers"]["trailer"]["embed"].html_safe %>
+			</div>
+		<% else %>
+			<h3><%= 'Trailer Not Available' %></h3>
+		<% end %>
+	</div>
+
+	<div class="row">
+		<div class="panel panel-danger">
+			<div class="panel-heading">
+				<h5 class="panel-title">Plot: </h5>
+			</div>
+			<div class="panel-body">
+				<%= @search.plot %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<h5>Actors: </h5>
+		<p><%= @search.actors %></p>
+	</div>
+</div>

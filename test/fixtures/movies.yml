@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  poster: MyString
+  title: MyString
+  year: 1
+  released: MyString
+  plot: MyText
+  awards: MyText
+  actors: MyText
+  imdbID: MyString
+
+two:
+  poster: MyString
+  title: MyString
+  year: 1
+  released: MyString
+  plot: MyText
+  awards: MyText
+  actors: MyText
+  imdbID: MyString
