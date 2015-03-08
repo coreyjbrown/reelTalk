@@ -1,7 +1,3 @@
-<header>
-	<%= render 'layouts/nav' %>
-</header>
-
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8">
@@ -15,7 +11,7 @@
 				<%= @url["trailers"]["trailer"]["embed"].html_safe %>
 			</div>
 		<% else %>
-			<h3><%= 'Trailer Not Available' %></h3>
+			<img src="https://googledrive.com/host/0BxgJkaKRW8jofjNLTlByV3UyTXFXZWlBanczb0U1NzRuVGpwRERsNl9LbU5ZSDA0TEZnMEk/novideo.png" alt=<%= @search.title %> class="img-thumbnail">
 		<% end %>
 	</div>
 

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'owlcarousel-rails', '~> 1.1.3.3'
 gem 'pry-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'omdbapi', '~> 0.2.0'

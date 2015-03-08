@@ -18,7 +18,7 @@ class SearchesController < ApplicationController
 	  		plot: m.plot, 
 	  		poster: m.poster
 	  		)
-	  end
+	 	end
 	end
 	@searches = Search.all
   end
@@ -26,10 +26,11 @@ class SearchesController < ApplicationController
   def show
   	@search = Search.find(params[:id])
   	@search.imdb_id = @search.imdb_id.gsub("tt","")
+
   	# get trailer info
 	call = "/?imdb=" + @search.imdb_id + "&count=1&width=680&credit=no"
 	@url = HTTParty.get("http://api.traileraddict.com#{call}", 
 		:headers =>{ 'ContentType' => 'application/json' } )
-	# @response = JSON.parse(url)
+
   end
 end

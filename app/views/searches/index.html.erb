@@ -1,8 +1,3 @@
-<header>
-  <%= render 'layouts/nav' %>
-</header>
-
-
 <div class="container">
 
   <div class="jumbotron">
@@ -14,27 +9,39 @@
       </div>
       <div class="col-md-3"></div>
     </div>
-      
-      <div class ="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4 center-block">
-          <%= form_tag "/", method: "GET" do %>
-            <%= text_field_tag :q, params[:q] %>
-            <%= submit_tag "Search" %>
-          <% end %>
-        </div>
-        <div class="col-md-4"></div>
-      </div>
 
-  </div>
+    <div class ="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 center-block">
+        <%= form_tag "/", method: "GET" do %>
+        <%= text_field_tag :q, params[:q] %>
+        <%= submit_tag "Search" %>
+        <% end %>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+  </div> 
+<!-- end of jumbotron -->
+
 
   <% if @searches %>
-  	<% @searches.each do |s| %>
-      <div class="search-card">
-        <h3><%= link_to s.title, s %></h3>
-        <img src=<%= s.poster %> alt=<%=s.title %> class="img-thumbnail">
-      </div>
-  	<% end %>
+    <div class="owl-carousel">
+      <% @searches.each do |s| %>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <h3><%= link_to s.title, s %></h3>
+            <% if s.poster != "N/A" %>
+            <%= link_to image_tag(s.poster, alt: s.title, :class => "img-thumbnail"), s %>
+            <% else %>
+              <%= link_to image_tag("https://googledrive.com/host/0BxgJkaKRW8jofjNLTlByV3UyTXFXZWlBanczb0U1NzRuVGpwRERsNl9LbU5ZSDA0TEZnMEk/image-not-available.jpg", alt: s.title, :class => "img-thumbnail"), s %>
+            <% end %>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 
 </div>
