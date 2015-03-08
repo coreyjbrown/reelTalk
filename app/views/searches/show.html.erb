@@ -1,33 +1,67 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12" style="text-align:center">
 			<h1><%= @search.title %></h1>
 		</div>
 	</div>
 
 	<div class="row">
-		<% if @url["trailers"] %>
-			<div>
-				<%= @url["trailers"]["trailer"]["embed"].html_safe %>
-			</div>
-		<% else %>
-			<img src="https://googledrive.com/host/0BxgJkaKRW8jofjNLTlByV3UyTXFXZWlBanczb0U1NzRuVGpwRERsNl9LbU5ZSDA0TEZnMEk/novideo.png" alt=<%= @search.title %> class="img-thumbnail">
-		<% end %>
-	</div>
-
-	<div class="row">
-		<div class="panel panel-danger">
-			<div class="panel-heading">
-				<h5 class="panel-title">Plot: </h5>
-			</div>
-			<div class="panel-body">
-				<%= @search.plot %>
-			</div>
+		<div class="col-md-12" style="text-align:center">
+			<% if @url["trailers"] %>
+				<div>
+					<%= @url["trailers"]["trailer"]["embed"].html_safe %>
+				</div>
+			<% else %>
+				<img src="https://googledrive.com/host/0BxgJkaKRW8jofjNLTlByV3UyTXFXZWlBanczb0U1NzRuVGpwRERsNl9LbU5ZSDA0TEZnMEk/novideo.png" alt=<%= @search.title %> class="img-thumbnail">
+			<% end %>
 		</div>
 	</div>
+	<br>
 
-	<div class="row">
-		<h5>Actors: </h5>
-		<p><%= @search.actors %></p>
-	</div>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Plot
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <p><%= @search.plot %></p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Cast
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <p><%= @search.actors %></p>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Other Information
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <p><b>Director: </b><%= @search.director %></p>
+        <p><b>Year: </b><%= @search.year %></p>
+        <p><b>Rated: </b><%= @search.rated %></p>
+        <p><b>Genre: </b><%= @search.genre %></p>
+      </div>
+    </div>
+  </div>
 </div>
