@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/about' , :as => :about
+
   get 'searches/show'
 
   get 'searches/index'
