@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
+  get 'comments/show'
+
+  get 'comments/edit'
+
   devise_for :users
   get 'searches/show'
 
@@ -6,5 +12,5 @@ Rails.application.routes.draw do
 
   root 'searches#index'
 
-  resources :searches
+  resources :searches, :comments
 end
