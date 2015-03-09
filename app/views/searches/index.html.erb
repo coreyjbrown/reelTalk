@@ -23,7 +23,7 @@
       <div class="col-md-12" style="text-align:center">
         <%= form_tag "/", method: "GET" do %>
         <div class="form-group form-inline ">
-          <%= text_field_tag :q, params[:q], placeholder: 'Enter your movie . . .', size: 75, class: "form-control" %>
+          <%= text_field_tag :q, params[:q], placeholder: 'Enter your movie search . . .', size: 75, class: "form-control" %>
           <%= submit_tag "Search", class: "btn btn-primary" %>
         </div>
         <% end %>
