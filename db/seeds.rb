@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Comment.destroy_all
+
+s = Search.first
+c = Comment.new(id: 1, body: "Comment test", imdb_id: s.imdb_id, user_id: User.first.id)

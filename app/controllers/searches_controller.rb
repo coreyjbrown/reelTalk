@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
 	  	@search = Search.create(
 	  		title: m.title, 
 	  		year: m.year, 
-	  		imdb_id: m.imdb_id,
+	  		imdb_id: m.imdb_id.gsub("tt",""),
 	  		rated: m.rated, 
 	  		genre: m.genre, 
 	  		director: m.director, 
@@ -25,7 +25,7 @@ class SearchesController < ApplicationController
 
   def show
   	@search = Search.find(params[:id])
-  	@search.imdb_id = @search.imdb_id.gsub("tt","")
+  	# @search.imdb_id = @search.imdb_id.gsub("tt","")
 
   	# get trailer info
 	call = "/?imdb=" + @search.imdb_id + "&count=1&width=680&credit=no"

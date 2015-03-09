@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'twitter', '~> 5.14.0'
 gem 'devise'
 gem 'owlcarousel-rails', '~> 1.1.3.3'
 gem 'pry-rails'
